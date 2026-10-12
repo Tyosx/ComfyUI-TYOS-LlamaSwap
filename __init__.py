@@ -1,5 +1,5 @@
 WEB_DIRECTORY = "./web/js"
-__version__ = "0.9.0"
+__version__ = "0.9.1"
 
 import base64
 import io
@@ -490,7 +490,7 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "TyosLlamaSwapVisionNode": "TYOS Llama-Swap Vision Node",
+    "TyosLlamaSwapVisionNode": "TYOS MediaPrompt",
 }
 
 
