@@ -1,15 +1,25 @@
 # Changelog
 
+## v0.9.1
+
+- Updated public project branding to **ComfyUI-TYOS-MediaPrompt**.
+- Retained `TyosLlamaSwapVisionNode` as the internal node identifier for compatibility with existing workflows.
+- Published missing ComfyUI frontend and Windows updater files.
+- Rewrote public documentation around project features and setup.
+- Added `system_prompts.example.json` and stopped tracking local `system_prompts.json`.
+- Added a local prompt backup during updates.
+
+## v0.9.0
+
+- Added up to nine image inputs, three video inputs, and three audio inputs.
+- Added a combined twelve-input media limit.
+- Added labeled media in multimodal requests.
+
+## v0.8
+
+- Added updater support.
+- Preserved saved system prompt presets when updating.
+
 ## v0.7
 
-Initial public GitHub release.
-
-- llama-swap model discovery and OpenAI-compatible chat completions.
-- Vision/image input using lossless PNG data URLs.
-- Editable system prompt and user prompt.
-- Saved system-prompt presets in `system_prompts.json`.
-- Explicit save workflow with naming prompt and overwrite confirmation.
-- Token presets: 512, 2048, 8192, 12288, plus custom up to 65536.
-- Optional duration control with INT/FLOAT-compatible input.
-- ComfyUI VRAM cleanup option.
-- llama-swap model unload option.
+- Initial custom node supporting llama-swap model discovery, image input, system prompts, token presets, duration settings, and VRAM controls.
