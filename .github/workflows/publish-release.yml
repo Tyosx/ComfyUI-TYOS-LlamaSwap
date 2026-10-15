@@ -1,0 +1,37 @@
+name: Publish MediaPrompt Release
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build release ZIP
+        run: |
+          python3 - <<'PY'
+          import ast
+          from pathlib import Path
+          from zipfile import ZipFile, ZIP_DEFLATED
+          files = ["__init__.py","updater.py","update.bat","requirements.txt",
+                   "README.md","CHANGELOG.md","LICENSE","system_prompts.example.json",
+                   "web/js/tyos_llamaswap_vision_node.js"]
+          for f in files:
+              if not Path(f).is_file():
+                  raise SystemExit("Missing release file: " + f)
+          for f in ("__init__.py", "updater.py"):
+              ast.parse(Path(f).read_text(encoding="utf-8"))
+          Path("dist").mkdir(exist_ok=True)
+          with ZipFile("dist/ComfyUI-TYOS-MediaPrompt-v0.9.1.zip","w",ZIP_DEFLATED) as z:
+              for f in files:
+                  z.write(f,"ComfyUI-TYOS-MediaPrompt/"+f)
+          PY
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create v0.9.1 dist/ComfyUI-TYOS-MediaPrompt-v0.9.1.zip --title "TYOS MediaPrompt v0.9.1" --notes-file RELEASE_NOTES.md --latest
