@@ -1,6 +1,10 @@
 name: Publish MediaPrompt Release
 
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-release.yml'
   workflow_dispatch:
 
 permissions:
