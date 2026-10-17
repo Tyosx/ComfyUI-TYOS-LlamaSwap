@@ -6,6 +6,10 @@ Connect a local or remote OpenAI-compatible language model to ComfyUI workflows.
 
 > **Release:** v0.9 (multimedia inputs). Supported features depend on your selected model and backend.
 
+## Interface Preview
+
+![TYOS MediaPrompt node in ComfyUI](assets/node-preview.png)
+
 ## Features
 
 - **Model discovery:** Refresh Models queries the connected llama-swap server.
